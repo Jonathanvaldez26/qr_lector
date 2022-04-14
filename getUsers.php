@@ -65,7 +65,8 @@ if(count($results) > 0){
 
 }else{
 
-    $data = [       
+    $data = [    
+        "msg" => "Usuario no encontrado en la base de datos!",   
         "status" => "error"
     ];
 }

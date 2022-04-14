@@ -68,10 +68,28 @@ jQuery(document).ready(function(){
 
         if(respuesta.status == 'success'){
 
-          swal("Exito!", respuesta.msg, respuesta.status);
+          swal({
+            title: "Exito!",
+            text: respuesta.msg,
+            icon: respuesta.status,
+            timer: 1000
+            });
+
+            
+
+          // swal("Exito!", respuesta.msg, respuesta.status);
         }else{
-          swal("Info", respuesta.msg, respuesta.status);
+          swal({
+            title: "Info!",
+            text: respuesta.msg,
+            icon: respuesta.status,
+            timer: 1000
+            });
+          //swal("Info", respuesta.msg, respuesta.status);
         }
+
+        $("#txtCodigoQR").val('');
+        $("#txtCodigoQR").focus();
           
       },
       error: function(respuesta) {
@@ -102,10 +120,26 @@ jQuery(document).ready(function(){
 
         if(respuesta.status == 'success'){
 
-          swal("Exito!", respuesta.msg, respuesta.status);
+          swal({
+            title: "Exito!",
+            text: respuesta.msg,
+            icon: respuesta.status,
+            timer: 1000
+            });
+
+          //swal("Exito!", respuesta.msg, respuesta.status);
         }else{
-          swal("Info", respuesta.msg, respuesta.status);
+          swal({
+            title: "Info",
+            text: respuesta.msg,
+            icon: respuesta.status,
+            timer: 1000
+            });
+         // swal("Info", respuesta.msg, respuesta.status);
         }
+
+        $("#txtCodigoQR").val('');
+        $("#txtCodigoQR").focus();
           
       },
       error: function(respuesta) {

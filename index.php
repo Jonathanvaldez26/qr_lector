@@ -1,3 +1,13 @@
+<?php 
+require 'BDconect.php';
+$id_asistencia = $_GET['asistencia'];
+$sql = "SELECT * FROM asistencias WHERE id_asistencia  = '$id_asistencia'"; 
+$query = $connect -> prepare($sql); 
+$query -> execute(); 
+$result = $query -> fetch(PDO::FETCH_ASSOC);
+
+$query->connect = null;
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -28,7 +38,7 @@
 				<div class="col-lg-offset-4 col-lg-4 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title"><i class="fa fa-qrcode fa-lg"></i> &nbsp; Lectura de Gafetes</h3>
+							<h3 class="panel-title"><i class="fa fa-qrcode fa-lg"></i> &nbsp;REGISTRO ASISTENCIA <?=$result['nombre']?> </h3>
 						</div>
 						<div class="panel-body">
 						<input id="id_asistencia" name="id_asistencia" type="hidden" class="form-control" placeholder="Asistecia" aria-describedby="sizing-addon1" value="<?= $_GET['asistencia'] ?>" >
