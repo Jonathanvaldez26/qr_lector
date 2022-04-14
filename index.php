@@ -37,7 +37,7 @@ $query->connect = null;
 			<div class="row">
 				<div class="col-lg-offset-4 col-lg-4 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
 					<div class="panel panel-primary">
-						<div class="panel-heading">
+						<div class="panel-heading" style="background-color: pink;">
 							<h3 class="panel-title"><i class="fa fa-qrcode fa-lg"></i> &nbsp;REGISTRO ASISTENCIA <?=$result['nombre']?> </h3>
 						</div>
 						<div class="panel-body">
@@ -49,7 +49,7 @@ $query->connect = null;
 									</span>
 									<input id="txtCodigoQR" name="txtCodigoQR" type="text" class="form-control" placeholder="Codigo QR" maxlength="6"  aria-describedby="sizing-addon1">
 									<span class="input-group-addon" style="padding:1px;">
-										<button id="btnBuscar" name="btnBuscar" type="button" class="btn btn-primary btn-sm"><i class="fa fa-search fa-lg"></i></button>
+										<button id="btnBuscar" name="btnBuscar" type="button" class="btn btn-primary btn-sm" style="background-color: pink;"><i class="fa fa-search fa-lg"></i></button>
 									</span>
 								</div>
 							</div>
