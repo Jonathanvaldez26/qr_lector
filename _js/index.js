@@ -1,4 +1,7 @@
 jQuery(document).ready(function(){
+
+  // swal("Good job!", "You clicked the button!", "success");
+
   $("#txtCodigoQR").focus();
 
   //Aqui para realizar una busqueda Manual ingresando el codigo QR
@@ -10,7 +13,7 @@ jQuery(document).ready(function(){
 
   $("#btnBuscar").click(function(){
       var CodigoQR =  $("#txtCodigoQR").val();
-      $(".ultima-lectura").append('<li>'+CodigoQR+'</li>');
+      // $(".ultima-lectura").append('<li>'+CodigoQR+'</li>');
 
       $("#txtCodigoQR").val("");
       $("#txtCodigoQR").focus();
@@ -44,11 +47,74 @@ jQuery(document).ready(function(){
     var sonido = $("#lectura")[0];
     sonido.play();
     //Aqui instrucciones a realizar con el codigo QR leido
-    $(".ultima-lectura").append('<li>'+content+'</li>');
+    // $(".ultima-lectura").append('<li>'+content+'</li>');
 
+    $("#txtCodigoQR").val(content);
+
+    var code_ticket =  $("#txtCodigoQR").val();
+    var id_asistencia = $("#id_asistencia").val();
     
+    $.ajax({
+      url: "getUsers.php",
+      type: "POST",
+      data: {code_ticket,id_asistencia},
+      dataType: 'json',
+      beforeSend: function() {
+          console.log("Procesando....");
+
+      },
+      success: function(respuesta) {
+        console.log(respuesta);
+
+        if(respuesta.status == 'success'){
+
+          swal("Exito!", respuesta.msg, respuesta.status);
+        }else{
+          swal("Info", respuesta.msg, respuesta.status);
+        }
+          
+      },
+      error: function(respuesta) {
+          console.log(respuesta);
+      }
+
+  });
     
   });//Fin del lector Scanner
+
+  
+  $("#txtCodigoQR").on("change", function () {
+
+    // alert($(this).val());
+    var code_ticket = $(this).val();
+    var id_asistencia = $("#id_asistencia").val();
+    $.ajax({
+      url: "getUsers.php",
+      type: "POST",
+      data: {code_ticket,id_asistencia},
+      dataType: 'json',
+      beforeSend: function() {
+          console.log("Procesando....");
+
+      },
+      success: function(respuesta) {
+        console.log(respuesta.status);
+
+        if(respuesta.status == 'success'){
+
+          swal("Exito!", respuesta.msg, respuesta.status);
+        }else{
+          swal("Info", respuesta.msg, respuesta.status);
+        }
+          
+      },
+      error: function(respuesta) {
+          console.log(respuesta);
+      }
+
+  });
+
+  });
 
 
 
