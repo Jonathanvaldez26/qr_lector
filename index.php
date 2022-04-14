@@ -11,7 +11,7 @@ $query->connect = null;
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Lector QR</title>
+		<title>MUSA Lector</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@ $query->connect = null;
 		<meta name="author" content="Ing. Marco Antonio González Martinez">
 		<meta name="robots" content="index, follow">
 		<meta name="googlebot" content="index, follow">
-		<link rel="icon" href="favicon.ico">
+		<link rel="icon" href="favicon.png">
 		<link rel="stylesheet" type="text/css" href="plugins/Bootstrap-3.3.7/css/bootstrap.css"/>
 		<link rel="stylesheet" href="plugins/font-awesome-4.7.0/css/font-awesome.min.css">
 		<script type="text/javascript" src="plugins/jQuery-3.3.1/jquery-3.3.1.js"></script>
