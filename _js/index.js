@@ -27,8 +27,8 @@ jQuery(document).ready(function(){
   
   Instascan.Camera.getCameras().then(function (cameras) {
       if (cameras.length > 0) {
-        scanner.start(cameras[0]);
-        console.log(cameras[0].name);
+        scanner.start(cameras[1]);
+        console.log(cameras[1].name);
       } else {
         console.error('No cameras found.');
       }
