@@ -5,6 +5,15 @@ $code_ticket = $_POST['code_ticket'];
 $id_asistencia = $_POST['id_asistencia'];
 $data = [];
 
+$sqlAsistencia = "SELECT *
+FROM asistencias
+WHERE clave = '$id_asistencia'";
+$query_as = $connect -> prepare($sqlAsistencia); 
+$query_as -> execute(); 
+$result_as = $query_as -> fetchAll(); 
+
+$id_asis = $result_as[0]['id_asistencia'];
+
 $sql = "SELECT ra.*, ua.*
 FROM registros_acceso ra
 INNER JOIN utilerias_asistentes ua 
@@ -25,7 +34,7 @@ if(count($results) > 0){
     FROM utilerias_asistentes ua 
     INNER JOIN registros_asistencia rasis
     ON (ua.utilerias_asistentes_id = rasis.utilerias_asistentes_id) 
-    WHERE ua.utilerias_asistentes_id = '$utilerias_asistentes_id' AND rasis.clave =  '$id_asistencia'"; 
+    WHERE ua.utilerias_asistentes_id = '$utilerias_asistentes_id' AND rasis.id_asistencias =  '$id_asis'"; 
     $query_rasis = $connect -> prepare($sql_registros_asistencia); 
     $query_rasis -> execute(); 
     $results_rasis = $query_rasis -> fetchAll();
@@ -41,7 +50,7 @@ if(count($results) > 0){
         //agregar asistencia
         $sql_insert_asistencia = $connect->prepare("INSERT INTO registros_asistencia (id_asistencias, utilerias_asistentes_id, fecha_alta, status) VALUES (:id_asistencias, :utilerias_asistentes_id, NOW(), 1)");
         // Bind
-        $sql_insert_asistencia->bindParam(':id_asistencias', $id_asistencia);
+        $sql_insert_asistencia->bindParam(':id_asistencias', $id_asis);
         $sql_insert_asistencia->bindParam(':utilerias_asistentes_id', $utilerias_asistentes_id);
         // Excecute
         if($sql_insert_asistencia->execute()){
