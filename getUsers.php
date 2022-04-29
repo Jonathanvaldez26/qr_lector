@@ -25,7 +25,7 @@ if(count($results) > 0){
     FROM utilerias_asistentes ua 
     INNER JOIN registros_asistencia rasis
     ON (ua.utilerias_asistentes_id = rasis.utilerias_asistentes_id) 
-    WHERE ua.utilerias_asistentes_id = '$utilerias_asistentes_id' AND rasis.id_asistencias =  '$id_asistencia'"; 
+    WHERE ua.utilerias_asistentes_id = '$utilerias_asistentes_id' AND rasis.clave =  '$id_asistencia'"; 
     $query_rasis = $connect -> prepare($sql_registros_asistencia); 
     $query_rasis -> execute(); 
     $results_rasis = $query_rasis -> fetchAll();
