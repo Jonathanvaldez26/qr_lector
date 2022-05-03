@@ -29,15 +29,15 @@ jQuery(document).ready(function(){
   });
   
   Instascan.Camera.getCameras().then(function (cameras) {
-      // if (cameras.length == 1) {
+      if (cameras.length == 1) {
         scanner.start(cameras[0]);
         console.log(cameras[0].name);
-      // } else if(cameras.length >= 2){
-      //   scanner.start(cameras[1]);
-      //   console.log(cameras[1].name);
-      // }else {
-      //   console.error('No cameras found.');
-      // }
+      } else if(cameras.length >= 2){
+        scanner.start(cameras[1]);
+        console.log(cameras[1].name);
+      }else {
+        console.error('No cameras found.');
+      }
     }).catch(function (e) {
       console.error(e);
   });
