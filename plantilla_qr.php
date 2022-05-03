@@ -6,8 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta name="description" content="www.marco.presting.pro">
-		<meta name="author" content="Ing. Marco Antonio González Martinez">
+		<meta name="author" content="Ing. Gerson Velasco Bazan">
 		<meta name="robots" content="index, follow">
 		<meta name="googlebot" content="index, follow">
 		<link rel="icon" href="favicon.png">
@@ -47,7 +46,7 @@
 								<div class="luz-lector">
 									<img class="animate" src="img/luz_lector.png" alt="">
 								</div>
-								<video id="preview" style="border: 1px solid #CCC; border-radius: 5px; width: 100%; position: relative;">
+								<video id="preview" style="border: 1px solid #CCC; border-radius: 5px; width: 100%; position: relative;" playsinline>
 								</video>
 							</div>
 						</div>
